@@ -1,0 +1,31 @@
+22:05:05 **** Incremental Build of configuration Debug for project vrs_cvicenie_6_UART ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_FULL_LL_DRIVER -DSTM32F303x8 -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=8000000 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:98:3: warning: implicit declaration of function 'USART2_RegisterCallback' [-Wimplicit-function-declaration]
+   98 |   USART2_RegisterCallback(process_serial_data);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'process_serial_data':
+../Core/Src/main.c:148:10: warning: character constant too long for its type
+  148 |  if (ch=='ledon')
+      |          ^~~~~~~
+../Core/Src/main.c:168:14: warning: character constant too long for its type
+  168 |  else if(ch=='ledoff')
+      |              ^~~~~~~~
+arm-none-eabi-gcc -o "vrs_cvicenie_6_UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\10786\Desktop\stm32 303\vrs_cvicenie_4-master\vrs_cv3_interrupts\vrs_cvicenie_6_UART\STM32F303K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="vrs_cvicenie_6_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: vrs_cvicenie_6_UART.elf
+ 
+arm-none-eabi-size   vrs_cvicenie_6_UART.elf 
+arm-none-eabi-objdump -h -S  vrs_cvicenie_6_UART.elf  > "vrs_cvicenie_6_UART.list"
+arm-none-eabi-objcopy  -O binary  vrs_cvicenie_6_UART.elf  "vrs_cvicenie_6_UART.bin"
+   text	   data	    bss	    dec	    hex	filename
+   4884	     12	   1572	   6468	   1944	vrs_cvicenie_6_UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: vrs_cvicenie_6_UART.bin
+Finished building: vrs_cvicenie_6_UART.list
+ 
+ 
+
+22:05:07 Build Finished. 0 errors, 3 warnings. (took 1s.562ms)
+
